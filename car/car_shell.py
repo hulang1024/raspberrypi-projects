@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import RPi.GPIO as GPIO
 import sys
 import tty, termios
 import config
@@ -58,4 +57,4 @@ while True:
         break
 
 car.stop()
-GPIO.cleanup()
+car.on_exit()

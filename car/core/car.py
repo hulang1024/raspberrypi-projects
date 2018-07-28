@@ -4,7 +4,7 @@
     抽象小车控制器
 """
 
-import time
+import RPi.GPIO as GPIO
 
 class Car:
     def fore(self):
@@ -21,3 +21,6 @@ class Car:
 
     def stop(self):
         pass
+
+    def on_exit(self):
+        GPIO.cleanup()
