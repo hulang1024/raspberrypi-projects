@@ -1,5 +1,8 @@
-
 # -*- coding: utf-8 -*-
+
+"""
+    简单LED控制
+"""
 
 import RPi.GPIO as GPIO
 from time import sleep
@@ -33,6 +36,7 @@ def on_lamp(i):
 def set_lamp(i, state):
     GPIO.output(output_nums[i], state)
     lamp_states[i] = state
+
 #开关灯
 def turn_lamp(i):
     if lamp_states[i]:
@@ -78,8 +82,6 @@ def run_flow():
         cnt += 1
     off_all_lamps()
 
-
-
 fd = sys.stdin.fileno()
 old_settings = termios.tcgetattr(fd)
 while True:
@@ -101,5 +103,8 @@ while True:
         flow_next()
     elif keysym == 'a':
         flow_prev()
+    elif keysym == 'f':
+        run_flow()
     elif ord(keysym) == 0x3: #ctrl c
         break
+GPIO.clearnup()

@@ -1,0 +1,55 @@
+body {
+  background-color: #3a3a3a;
+}
+
+.ctrl-panel {
+  position: relative;
+  margin: 100px auto;
+}
+
+.ctrl-buttons {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.ctrl-buttons button {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  display: block;
+  outline: none;
+  border: 0px;
+  box-shadow: 2px 2px 6px;
+}
+
+.ctrl-buttons .fore {
+  left: 75px;
+  top: 0px;
+}
+
+.ctrl-buttons .back {
+  left: 75px;
+  bottom: 0px;
+}
+
+.ctrl-buttons .left {
+  left: 0px;
+  top: 75px;
+}
+
+.ctrl-buttons .right {
+  right: 0px;
+  top: 75px;
+}
+
+.ctrl-buttons .stop {
+  left: 75px;
+  top: 75px;
+}
+
+.ui-button-down {
+  font-weight: bold;
+  box-shadow: 1px 0px 6px !important;
+}
