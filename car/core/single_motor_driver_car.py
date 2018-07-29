@@ -5,8 +5,8 @@
 """
 
 import time
-from car import Car
-import motor_driver
+from core.car import Car
+import core.motor_driver
 
 class SingleMotorDriverCar(Car):
     def __init__(self, motor_driver):

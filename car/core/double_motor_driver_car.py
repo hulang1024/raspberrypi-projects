@@ -5,8 +5,8 @@
 """
 
 import time
-from car import Car
-import motor_driver
+from core.car import Car
+import core.motor_driver
 
 class DoubleMotorDriverCar(Car):
     def __init__(self, motor_driver1, motor_driver2):
@@ -52,10 +52,18 @@ class DoubleMotorDriverCar(Car):
         self.__lastCtrl = 'back'
 
     def turn_left(self):
-        pass
+        self.__fron_motor_driver.stop(1)
+        self.__back_motor_driver.stop(1)
+        self.__fron_motor_driver.forward(2)
+        self.__back_motor_driver.forward(2)
+        self.__lastCtrl = 'turn_left'
 
     def turn_right(self):
-        pass
+        self.__fron_motor_driver.stop(2)
+        self.__back_motor_driver.stop(2)
+        self.__fron_motor_driver.forward(1)
+        self.__back_motor_driver.forward(1)
+        self.__lastCtrl = 'turn_right'
 
     def stop(self):
         """

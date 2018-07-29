@@ -35,11 +35,11 @@ class WSHandler(tornado.websocket.WebSocketHandler):
     def check_origin(self, origin):
         return True
     def open(self):
-        print 'connection opened...'
+        print('connection opened...')
         self.write_message("The server says: 'Hello'. Connection was accepted.")
 
     def on_message(self, message):
-        print 'received:', message
+        print('received:', message)
         code = message
         if code == 'fore':
             car.fore()
@@ -54,7 +54,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         self.write_message("1")
 
     def on_close(self):
-        print 'connection closed...'
+        print('connection closed...')
 
 application = tornado.web.Application([
     (r'/ws', WSHandler),
@@ -63,5 +63,8 @@ application = tornado.web.Application([
 ])
 
 if __name__ == "__main__":
-    application.listen(9000)
-    tornado.ioloop.IOLoop.instance().start()
+    try:
+        application.listen(9000)
+        tornado.ioloop.IOLoop.instance().start()
+    except KeyboardInterrupt:
+        car.on_exit()

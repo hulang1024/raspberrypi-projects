@@ -1,7 +1,8 @@
 var isMobile = !navigator.userAgent || /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
 
 $(function($){
-  var socket = new WebSocket("ws://" + location.hostname + ":9000/ws");
+  var hostname = location.hostname || "localhost";
+  var socket = new WebSocket("ws://" + hostname + ":9000/ws");
   socket.onopen = function(){
     alert("连接服务器成功!");
   }
@@ -17,6 +18,10 @@ $(function($){
   if (!isMobile) {
     $('#keyboard-info').show();
   }
+
+  document.oncontextmenu = function(){
+    event.returnValue = false;
+  };
 
   var ui = {};
   ui.Button = function(dom) {

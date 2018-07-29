@@ -23,4 +23,5 @@ class Car:
         pass
 
     def on_exit(self):
+        self.stop()
         GPIO.cleanup()

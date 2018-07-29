@@ -1,10 +1,31 @@
 body {
-  background-color: #3a3a3a;
+  background-color: #5a5a5a;
+}
+.ui-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  display: block;
+  outline: none;
+  border: 0px;
+  box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.ui-button:hover {
+
+}
+
+.ui-button-down {
+  box-shadow: none !important;
+  transform: scale(0.99);
+  font-weight: bold;
+  color: gold;
 }
 
 .ctrl-panel {
   position: relative;
-  margin: 100px auto;
+  margin: 140px auto;
 }
 
 .ctrl-buttons {
@@ -13,16 +34,11 @@ body {
   height: 200px;
   margin: 0 auto;
 }
+
 .ctrl-buttons button {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 6px;
-  display: block;
-  outline: none;
-  border: 0px;
-  box-shadow: 2px 2px 6px;
 }
+
 
 .ctrl-buttons .fore {
   left: 75px;
@@ -47,9 +63,4 @@ body {
 .ctrl-buttons .stop {
   left: 75px;
   top: 75px;
-}
-
-.ui-button-down {
-  font-weight: bold;
-  box-shadow: 1px 0px 6px !important;
 }
