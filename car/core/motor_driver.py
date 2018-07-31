@@ -52,3 +52,4 @@ class MotorDriver:
             v = MotorDriver.__MOTOR_CTRL_OUT_TABLE[motor_num - 1][act][i]
             if v != None:
                 GPIO.output(self.__in_pins[i], v)
+                print(self.__in_pins[i], v)

@@ -46,10 +46,14 @@ class SingleMotorDriverCar(Car):
         self.__lastCtrl = 'back'
 
     def turn_left(self):
-        pass
+        self.__motor_driver.stop(1)
+        self.__motor_driver.forward(2)
+        self.__lastCtrl = 'turn_left'
 
     def turn_right(self):
-        pass
+        self.__motor_driver.stop(2)
+        self.__motor_driver.forward(1)
+        self.__lastCtrl = 'turn_right'
 
     def stop(self):
         """
