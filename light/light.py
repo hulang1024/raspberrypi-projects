@@ -18,6 +18,7 @@ class Light:
         GPIO.output(self.__pin, GPIO.HIGH)
 
     def turn_off(self):
+        self.brightness_turn_off()
         GPIO.output(self.__pin, GPIO.LOW)
 
     def brightness_turn_on(self, value):
@@ -31,30 +32,3 @@ class Light:
         if self.__pwm != None:
             self.__pwm.stop()
             self.__pwm = None
-
-if __name__ == '__main__':
-    r_light = Light(11)
-    g_light = Light(12)
-    b_light = Light(13)
-
-    f = True
-    v = 10
-    while True:
-        #r = int(input('r='))
-        #g = int(input('g='))
-        #b = int(input('b='))
-        v = 100 if f else 255
-        r = g = b = v
-        f = not f
-        r_light.brightness_turn_on(r)
-        g_light.brightness_turn_on(g)
-        b_light.brightness_turn_on(b)
-        time.sleep(1)
-
-    time.sleep(10)
-
-    try:
-        pass
-    finally:
-        print('cleanup')
-        GPIO.cleanup()

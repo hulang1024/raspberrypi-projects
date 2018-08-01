@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+    <title>Lights</title>
+    <script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="honeySwitch.css">
+    <script src="honeySwitch.js"></script>
+    <style>
+      body {
+        background: #fafafa;
+        font-size: 1.2em;
+      }
+      .row {
+        width: 200px;
+        height: 50px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+<body>
+
+  <div class="row">
+    <div>1号灯</div>
+    <span id="switch-1" class="switch-off" themeColor="gold"></span>
+    <div><input id="range-1" type="range" value="0" min="1" max="255" /></div>
+  </div>
+
+  <div class="row">
+    <div>2号灯</div>
+    <span id="switch-2" class="switch-off" themeColor="gold"></span>
+    <div><input id="range-2" type="range" value="0" min="1" max="255" /></div>
+  </div>
+
+  <div class="row">
+    <div>3号灯</div>
+    <span id="switch-3" class="switch-off" themeColor="gold"></span>
+    <div><input id="range-3" type="range" value="0" min="1" max="255" /></div>
+  </div>
+
+  <script src="jquery-1.9.1.min.js"></script>
+  <script src="main.js?v=1.1"></script>
+
+</body>
+</html>
