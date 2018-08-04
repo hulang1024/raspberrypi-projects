@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
     <title>小车控制面板</title>
-    <link href="index.css?v=2.1" type="text/css" rel="stylesheet">
+    <link href="index.css?v=1.2" type="text/css" rel="stylesheet">
   </head>
 <body>
   <div class="ctrl-panel">
-    <div class="ctrl-buttons">
+    <div class="ctrl-dir">
       <button class="fore ui-button">前进</button>
       <button class="back ui-button">后退</button>
       <button class="left ui-button">左转</button>
@@ -16,6 +16,12 @@
       <button class="stop ui-button">停止</button>
     </div>
 
+    <div class="ctrl-speed">
+      <p>速度: <input id="curr-speed-number" type="number" value="0" style="width:40px"/></p>
+      <button class="ui-button" id="set-speed">!</button>
+      <button class="ui-button" id="inc-speed">+</button>
+      <button class="ui-button" id="dec-speed">-</button>
+    </div>
     <p id="keyboard-info" style="display:none">
       键盘操作说明:
       <br>
@@ -26,7 +32,7 @@
   <div>
 
   <script src="jquery-1.9.1.min.js"></script>
-  <script src="main.js?v=2"></script>
+  <script src="main.js?v=1.7"></script>
 
 </body>
 </html>

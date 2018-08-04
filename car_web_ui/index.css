@@ -1,11 +1,11 @@
 body {
   background-color: #5a5a5a;
+  overflow: hidden;
 }
 .ui-button {
   width: 50px;
   height: 50px;
   border-radius: 6px;
-  display: block;
   outline: none;
   border: 0px;
   box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.4);
@@ -28,39 +28,46 @@ body {
   margin: 140px auto;
 }
 
-.ctrl-buttons {
+.ctrl-dir {
   position: relative;
   width: 200px;
   height: 200px;
   margin: 0 auto;
 }
 
-.ctrl-buttons button {
+.ctrl-speed {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 10px auto;
+}
+
+.ctrl-dir button {
   position: absolute;
 }
 
 
-.ctrl-buttons .fore {
+.ctrl-dir .fore {
   left: 75px;
   top: 0px;
 }
 
-.ctrl-buttons .back {
+.ctrl-dir .back {
   left: 75px;
   bottom: 0px;
 }
 
-.ctrl-buttons .left {
+.ctrl-dir .left {
   left: 0px;
   top: 75px;
 }
 
-.ctrl-buttons .right {
+.ctrl-dir .right {
   right: 0px;
   top: 75px;
 }
 
-.ctrl-buttons .stop {
+.ctrl-dir .stop {
   left: 75px;
   top: 75px;
 }

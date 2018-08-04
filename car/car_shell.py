@@ -2,24 +2,9 @@
 
 import sys
 import tty, termios
-import config
-from core.motor_driver import *
-from core.double_motor_driver_car import *
-from core.single_motor_driver_car import *
+import car_factory
 
-
-car = None
-if config.motor_driver_count == 2:
-    car = DoubleMotorDriverCar(
-        MotorDriver(config.motor_driver_in_pins[0]),
-        MotorDriver(config.motor_driver_in_pins[1]))
-elif config.motor_driver_count == 1:
-    car = SingleMotorDriverCar(
-        MotorDriver(config.motor_driver_in_pins[0]))
-
-if car == None:
-    print('配置错误')
-    exit()
+car = car_factory.new()
 
 fd = sys.stdin.fileno()
 old_settings = termios.tcgetattr(fd)

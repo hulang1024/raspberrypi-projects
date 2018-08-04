@@ -8,23 +8,10 @@ import tornado.ioloop
 import tornado.web
 import tornado.websocket
 import tornado.template
-import config
-from core.motor_driver import *
-from core.double_motor_driver_car import *
-from core.single_motor_driver_car import *
+import json
+import car_factory
 
-car = None
-if config.motor_driver_count == 2:
-    car = DoubleMotorDriverCar(
-        MotorDriver(config.motor_driver_in_pins[0]),
-        MotorDriver(config.motor_driver_in_pins[1]))
-elif config.motor_driver_count == 1:
-    car = SingleMotorDriverCar(
-        MotorDriver(config.motor_driver_in_pins[0]))
-
-if car == None:
-    print('配置错误')
-    exit()
+car = car_factory.new()
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
@@ -36,7 +23,9 @@ class WSHandler(tornado.websocket.WebSocketHandler):
         return True
     def open(self):
         print('connection opened...')
-        self.write_message("The server says: 'Hello'. Connection was accepted.")
+        self.write_message(json.dumps(
+            {'type': 'init',
+             'data': {'carSpeed': car.speed()}}))
 
     def on_message(self, message):
         print('received:', message)
@@ -51,7 +40,10 @@ class WSHandler(tornado.websocket.WebSocketHandler):
             car.turn_right()
         elif code == 'stop':
             car.stop()
-        self.write_message("1")
+        elif code.startswith('changeSpeed'):
+            params = code.split(' ')[1:]
+            speed_value = int(params[0])
+            car.change_speed(speed_value)
 
     def on_close(self):
         print('connection closed...')
