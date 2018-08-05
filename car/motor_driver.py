@@ -34,9 +34,6 @@ class MotorDriver:
             pwms.append(pwm)
         self.__pwms = tuple(pwms)
 
-
-
-
     def forward(self, motor_num):
         """
         正转电机

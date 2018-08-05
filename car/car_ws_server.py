@@ -16,7 +16,7 @@ car = car_factory.new()
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         loader = tornado.template.Loader(".")
-        self.write(loader.load("../car_web_ui/index.html").generate())
+        self.write(loader.load("web_ui/index.html").generate())
 
 class WSHandler(tornado.websocket.WebSocketHandler):
     def check_origin(self, origin):
@@ -51,7 +51,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
 application = tornado.web.Application([
     (r'/ws', WSHandler),
     (r'/', IndexHandler),
-    (r"/(.*)", tornado.web.StaticFileHandler, {"path": "../car_web_ui"}),
+    (r"/(.*)", tornado.web.StaticFileHandler, {"path": "web_ui"}),
 ])
 
 if __name__ == "__main__":
