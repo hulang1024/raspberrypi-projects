@@ -90,6 +90,10 @@ class Car:
         for ext in self.extends:
             ext.on_car_stop()
 
+    def on_distance_change(self, distance):
+        if self.__dir == Car.DIR_FORE and self._is_block_distance(distance):
+            self.stop()
+
     def on_exit(self):
         self.stop()
         for ext in self.extends:

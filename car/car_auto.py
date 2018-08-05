@@ -7,6 +7,8 @@ import time
 
 try:
     car = car_factory.new()
+    car.change_speed(16)
+    time.sleep(2)
     print('go')
     while True:
         print('loop')
