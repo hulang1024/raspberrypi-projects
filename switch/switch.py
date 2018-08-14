@@ -65,9 +65,3 @@ class MultifunctionSwitch:
         minutes = (time['hour'] * 60 + time['minute']) - (now.hour * 60 + now.minute)
 
         delay_turn_func(minutes * 60)
-
-
-if __name__ == '__main__':
-    switch = MultifunctionSwitch(LowCloseRelay(31))
-    time.sleep(2)
-    switch.turn_on()

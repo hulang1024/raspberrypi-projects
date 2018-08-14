@@ -22,3 +22,9 @@ class LowCloseRelay:
 
     def is_on(self):
         return self._is_on
+
+
+if __name__ == '__main__':
+    switch = LowCloseRelay(31)
+    time.sleep(2)
+    switch.turn_on()
