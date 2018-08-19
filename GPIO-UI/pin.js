@@ -1,4 +1,4 @@
-//可画的对象
+/*可画的对象*/
 
 function Pin(funcName, color) {
   this.funcName = funcName;
@@ -12,6 +12,10 @@ function Pin(funcName, color) {
   outer.appendChild(inner);
 
   this.div = outer;
+
+  this.update = function(n) {
+    inner.style.backgroundColor = n ? '#ff0000' : '#fff';
+  }
 }
 
 function VccPin(v) {
@@ -70,8 +74,32 @@ function PinBoard() {
   pins[39] = new GndPin();
   pins[40] = new GPIOPin(29, 0);
 
+  var self = this;
+  this.pins = pins;
+
+  this.gpio = null;
+
+  this.connectGPIO = function(gpio) {
+    this.gpio = gpio;
+  }
+
+  this.output = function(pinNo, n) {
+    var pin = pins[pinNo];
+    if (pin instanceof GPIOPin) {
+      pin.update(n);
+    } else {
+      alert('该引脚不是GPIO引脚');
+    }
+  }
+
   var div = document.getElementById('pin-board');
-  pins.forEach(function(pin, i) {
+  pins.forEach(function(pin, boardPinNo) {
+    pin.div.onclick = function() {
+      self.gpio.setup(boardPinNo, GPIO.OUT);
+      var n = self.gpio._read(boardPinNo);
+      n = +!n;
+      self.gpio.output(boardPinNo, n);
+    }
     div.appendChild(pin.div);
   });
 }
