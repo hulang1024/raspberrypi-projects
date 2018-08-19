@@ -39,6 +39,7 @@ html, body {
   text-align: center;
   font-style: italic;
   font-weight: bold;
+  font-size: 13px;
 }
 
 #pin-board {
