@@ -5,6 +5,20 @@
 1. Web界面控制台，控制方向和速度
 2. 超声波避障
 
+## 用法
+1. 在config.py做配置:
+```python
+  #树莓派连接电机驱动器信息
+  motor_driver = {
+      #IN口(IN1~IN4)的BOARD模式的引脚编号
+      'in_pins': (11, 12, 13, 15),
+      #使能口的BOARD模式的引脚编号:电机1,电机2
+      'enable_pins': (35, 37)
+  }
+```
+2. 运行web服务器: ```python python3 car_ws_server.py```
+3. 访问web服务器: http://*<树莓派主机ip>*:9000
+
 ## 实现
 ### 硬件清单
 0. 树莓派
