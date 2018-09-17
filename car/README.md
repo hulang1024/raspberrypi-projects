@@ -6,7 +6,8 @@
 2. 超声波避障
 
 ## 用法
-1. 在config.py做配置:
+1. 安装必要的python库：tornado
+2. 在config.py自定义配置:
 ```python
   #树莓派连接电机驱动器信息
   motor_driver = {
@@ -16,8 +17,8 @@
       'enable_pins': (35, 37)
   }
 ```
-2. 运行web服务器: ```python python3 car_ws_server.py```
-3. 访问web服务器: http://*<树莓派主机ip>*:9000
+3. 运行web服务器: ```python3 car_ws_server.py```
+4. 访问web服务器: http://*<树莓派主机>*:9000
 
 ## 实现
 ### 硬件清单
